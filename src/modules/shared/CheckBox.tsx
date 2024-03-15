@@ -8,7 +8,6 @@ const CheckBox = ({
   name,
   isChecked,
 }: Props) => {
-  //   const Checkbox = () => {
   return (
     <label className={className}>
       <input
@@ -22,7 +21,6 @@ const CheckBox = ({
       {label}
     </label>
   );
-  //   };
 };
 
 export default CheckBox;

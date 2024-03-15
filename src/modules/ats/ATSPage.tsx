@@ -1,18 +1,11 @@
 import React, { useState } from "react";
-import { useDrag, useDrop } from "react-dnd";
 import CandidateCard from "./CandidateCard";
-import { ITEM_TYPE } from "./Contants";
 import DropContainer from "./DropContainer";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { STAGES } from "../shared/Contants";
 type Props = {};
-export enum STAGES {
-  APPLIED = "applied",
-  ASSESSED = "assessed",
-  INTERVIEWED = "interviewed",
-  HIRED = "hired",
-  REJECTED = "rejected",
-}
+
 const STAGES_OF_CANDIDATE = [
   {
     id: "applied",

@@ -1,18 +1,15 @@
 import JobCard, { JobCardDetails } from "./JobCard";
 import Button from "../shared/Button";
 import { useNavigate } from "react-router-dom";
-import { jobData } from "../staticData/jobsData";
 import { useSelector } from "react-redux";
 type Props = {
   jobPosted: JobCardDetails[];
 };
 
 const JobPosts = ({}: Props) => {
-  // console.log(jobPosted, "check");
   const jobPosted =
     useSelector((state) => {
       return state.jobPositions.jobPositions;
-      // console.log(state.jobPositions.jobPositions, "state");
     }) ?? [];
   const navigate = useNavigate();
   return (

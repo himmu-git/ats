@@ -1,7 +1,5 @@
 import React from "react";
 
-// type Props = {};
-
 const Button = ({ children, onClick = (e) => {}, id = "", type = "" }) => {
   return (
     <button

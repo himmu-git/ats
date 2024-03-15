@@ -5,36 +5,12 @@ import RichTextEditorWrapper from "../shared/RichTextEditor";
 import Input from "../shared/Input";
 import Button from "../shared/Button";
 import { applyToJob } from "../../store/slices/jobpostslice";
-import { getRandomInt } from "../recruiter/AddPosition";
-import { STAGES } from "../ats/ATSPage";
+import { getRandomInt } from "../shared/util";
+import reducer from "../reducer/applyReducer";
+import { STAGES } from "../shared/Contants";
 
 type Props = {};
-const reducer = (state, action) => {
-  console.log(state, action);
-  switch (action.key) {
-    case "UPDATE_RICH_TXT":
-      return { ...state, richTxtArea: action.payload };
-      break;
-    case "UPDATE_NAME":
-      return { ...state, name: action.payload };
-      break;
-    case "UPDATE_EMAIL":
-      return { ...state, email: action.payload };
-      break;
-    case "UPDATE_PHNO":
-      return { ...state, phoneNo: action.payload };
-      break;
-    case "UPDATE_LINKDEN_URL":
-      return { ...state, linkdenUrl: action.payload };
-      break;
-    case "UPDATE_CURRENT_CMP":
-      return { ...state, currentcmp: action.payload };
-      break;
 
-    default:
-      break;
-  }
-};
 const intialState = {
   richTxtArea: "",
   name: "",
@@ -44,13 +20,12 @@ const intialState = {
   currentcmp: "",
 };
 const Apply = (props: Props) => {
-  const { jobtitle, jobid } = useParams();
+  const { jobid } = useParams();
   const navigate = useNavigate();
   const dispatchRedux = useDispatch();
   const jobPostings =
     useSelector((state) => {
       return state.jobPositions.jobPositions;
-      // console.log(state.jobPositions.jobPositions, "state");
     }) ?? [];
   const jobDetails =
     useSelector((state) => {
@@ -59,7 +34,6 @@ const Apply = (props: Props) => {
       });
       return jobDetails;
     }) ?? [];
-  // console.log(jobDetails);
   const { title, docsNeeded } = jobDetails;
   const [state, dispatch] = useReducer(reducer, intialState);
   [
@@ -104,14 +78,11 @@ const Apply = (props: Props) => {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    // console.log(state);
     let jobDetailsCopy = [...jobPostings];
     const found =
       jobDetailsCopy?.find((job) => {
-        // console.log(job.jobId, "jobid", jobid);
         return job.jobId == jobid;
       }) ?? {};
-    // console.log(jobDetailsCopy, found.candidateApplied, "object");
     let foundObj = { ...found };
     foundObj.candidateApplied = [
       ...found.candidateApplied,
@@ -128,7 +99,6 @@ const Apply = (props: Props) => {
       }
       return jobs;
     });
-    // console.log(jobDetailsCopy, "check", found);
 
     dispatchRedux(applyToJob(jobDetailsCopy));
     navigate("/");

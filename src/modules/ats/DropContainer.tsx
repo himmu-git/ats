@@ -1,8 +1,5 @@
-import React, { Children } from "react";
-import { ITEM_TYPE } from "./Contants";
+import { ITEM_TYPE } from "../shared/Contants";
 import { useDrop } from "react-dnd";
-
-type Props = {};
 
 const DropContainer = ({ id, name = "name", children }: Props) => {
   const [{ canDrop, isOver }, drop] = useDrop(() => ({

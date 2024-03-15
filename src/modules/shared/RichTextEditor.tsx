@@ -1,14 +1,10 @@
 import RichTextEditor from "rich-text-editor-for-react";
 import useRichTextEditor from "rich-text-editor-for-react/hook";
 import { useEffect } from "react";
-export default function RichTextEditorWrapper({ onChange, className }) {
+export default function RichTextEditorWrapper({ onChange }) {
   const { output, fetchOutput } = useRichTextEditor();
   useEffect(() => {
-    // console.log("fetch", output);
     onChange(output);
-    return () => {
-      //   second;
-    };
   }, [output]);
   return (
     <RichTextEditor
@@ -46,8 +42,6 @@ export default function RichTextEditorWrapper({ onChange, className }) {
         stickyToolbarOnScroll: true,
       }}
       fetchOutput={fetchOutput}
-      className={className}
-      //   onTextChange={(e) => console.log(e)}
     />
   );
 }

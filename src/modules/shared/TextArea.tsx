@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = {};
 
 const TextArea = ({ id, showLabel = true, labelTxt, placeholder }: Props) => {
@@ -16,9 +14,7 @@ const TextArea = ({ id, showLabel = true, labelTxt, placeholder }: Props) => {
       <textarea
         className="p-3 border-blue-100 border-[2px] rounded-lg w-[30%]"
         id={id}
-        // type={type}
         placeholder={placeholder}
-        // onChange={onChange}
       />
     </div>
   );

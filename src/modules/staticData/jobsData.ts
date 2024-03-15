@@ -1,13 +1,89 @@
-import { STAGES } from "../ats/ATSPage";
-
-export const jobData = [{
-    "jobId" : 101,
-    "title": "React Js",
+import { STAGES } from "../shared/Contants";
+export const jobData = [
+  {
+    "jobId": 101,
+    "title": "React.js Developer",
     "experience": "3",
     "location": "in-person",
-    "salary": 10,
-    "jobDescription": "<p><span style=\"color: rgb(81, 86, 94);\">businesses make informed decisions. With the advent of big data, the demand for skilled&nbsp;</span><a href=\"https://www.simplilearn.com/tutorials/data-analytics-tutorial/how-to-become-a-data-analyst\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(17, 121, 239);\">data analysts</a><span style=\"color: rgb(81, 86, 94);\">&nbsp;has surged across various industries. Here's a detailed exploration of the data analyst job, including what data analysis entails, the role of a data analyst, their importance in today's data-driven world, and what skills are required for data analysts.</span></p>",
-    "docsNeeded":  [
+    "salary": 75,
+    "jobDescription": "<p>We are seeking an experienced <strong>React.js Developer</strong> to join our innovative team. The ideal candidate should have a strong understanding of modern front-end development techniques and be passionate about building exceptional user experiences.</p><p>Responsibilities:</p><ul><li>Design and develop reusable React components and libraries</li><li>Implement responsive and interactive user interfaces using React, Redux, and related libraries</li><li>Integrate front-end components with RESTful APIs and backend services</li><li>Optimize application performance and ensure cross-browser compatibility</li><li>Collaborate with designers, developers, and stakeholders throughout the development lifecycle</li></ul><p>Requirements:</p><ul><li>Proficient in React.js, Redux, and related technologies (React Router, Webpack, etc.)</li><li>Experience with JavaScript (ES6+), HTML5, and CSS3</li><li>Familiarity with server-side rendering techniques (e.g., Next.js, Gatsby)</li><li>Understanding of responsive design principles and cross-browser compatibility</li><li>Knowledge of testing frameworks (e.g., Jest, Enzyme)</li><li>Strong problem-solving and debugging skills</li></ul>",
+    "docsNeeded": [
+      {
+        "docId": 21,
+        "dataLabel": "Name",
+        "dataValue": "name",
+        "isChecked": true
+      },
+      {
+        "docId": 31,
+        "dataLabel": "E-mail",
+        "dataValue": "email",
+        "isChecked": true
+      },
+      {
+        "docId": 41,
+        "dataLabel": "Phone Number",
+        "dataValue": "phno",
+        "isChecked": true
+      },
+      {
+        "docId": 42,
+        "dataValue": "linkdenurl",
+        "dataLabel": "Linkden Url",
+        "isChecked": false
+      },
+      {
+        "docId": 51,
+        "dataValue": "currentcmp",
+        "dataLabel": "Current Company",
+        "isChecked": false
+      }
+    ],
+    "candidateApplied": [
+      {
+        "cid": 21,
+        "name": "John Doe",
+        "appliedFor": [
+          {
+            "jobid": 101
+          }
+        ],
+        "currentStage": STAGES.APPLIED,
+        "email": "john.doe@example.com"
+      },
+      {
+        "cid": 22,
+        "name": "Jane Smith",
+        "appliedFor": [
+          {
+            "jobid": 101
+          }
+        ],
+        "currentStage": STAGES.INTERVIEWED,
+        "email": "janesmith@example.net"
+      },
+      {
+        "cid": 23,
+        "name": "Michael Johnson",
+        "appliedFor": [
+          {
+            "jobid": 101
+          }
+        ],
+        "currentStage": STAGES.ASSESSED,
+        "email": "mjohnson@example.org"
+      }
+    ]
+  },
+  {
+    jobId: 102,
+    title: "Full Stack Developer",
+    experience: "5",
+    location: "in-person",
+    salary: 80,
+    jobDescription:
+      "<p>We are seeking a skilled <strong>Full Stack Developer</strong> to join our dynamic team. The ideal candidate should have a strong understanding of both front-end and back-end technologies and be able to build robust and scalable web applications.</p><p>Responsibilities:</p><ul><li>Design and develop responsive user interfaces using modern frameworks like React or Angular</li><li>Build and maintain RESTful APIs using Node.js or Python</li><li>Implement secure and efficient database solutions using MongoDB or PostgreSQL</li><li>Collaborate with cross-functional teams to deliver high-quality products</li></ul>",
+    docsNeeded: [
       {
         docId: 21,
         dataLabel: "Name",
@@ -39,41 +115,40 @@ export const jobData = [{
         isChecked: false,
       },
     ],
-    candidateApplied : [
+    candidateApplied: [
       {
-        cid: 11,
-        name: "Aman",
-        appliedFor: [{ jobid: 1 }],
+        cid: 21,
+        name: "John Doe",
+        appliedFor: [
+          {
+            jobid: 102,
+          },
+        ],
         currentStage: STAGES.APPLIED,
-        email: "amana@g.com",
+        email: "john.doe@example.com",
       },
       {
-        cid: 12,
-        name: "Aman1",
-        appliedFor: [{ jobid: 1 }],
-        currentStage: STAGES.HIRED,
-        email: "amana@g.com",
-      },
-      {
-        cid: 13,
-        name: "Aman2",
-        appliedFor: [{ jobid: 1 }],
-        currentStage: STAGES.APPLIED,
-        email: "amana@g.com",
-      },
-      {
-        cid: 14,
-        name: "Aman2",
-        appliedFor: [{ jobid: 1 }],
+        cid: 22,
+        name: "Jane Smith",
+        appliedFor: [
+          {
+            jobid: 102,
+          },
+        ],
         currentStage: STAGES.INTERVIEWED,
-        email: "amana@g.com",
+        email: "janesmith@example.net",
       },
       {
-        cid: 15,
-        name: "Aman2",
-        appliedFor: [{ jobid: 1 }],
-        currentStage: STAGES.ASSESSED,
-        email: "amana@g.com",
+        cid: 23,
+        name: "Michael Johnson",
+        appliedFor: [
+          {
+            jobid: 102,
+          },
+        ],
+        currentStage: STAGES.REJECTED,
+        email: "mjohnson@example.org",
       },
-    ]
-}]
+    ],
+  },
+];

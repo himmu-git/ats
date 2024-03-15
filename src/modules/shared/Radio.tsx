@@ -1,17 +1,12 @@
-import React, { useState } from "react";
-import Input from "./Input";
-
 type Props = {};
 
 const Radio = ({ radiosData = [], onChange }: Props) => {
-  // const [selectedRadio, setSelectedRadio] = useState({});
   const handleChange = (e) => {
-    // const { name, value } = e.target;
     onChange(e);
   };
   return (
     <>
-      {radiosData.map(({ id, name, label, value, isChecked }) => {
+      {radiosData.map(({ id, name, label, value }) => {
         return (
           <div key={id} className="flex gap-2  items-center ">
             <input
@@ -20,7 +15,6 @@ const Radio = ({ radiosData = [], onChange }: Props) => {
               name={name}
               type={"radio"}
               value={value}
-              // checked={isChecked}
               onChange={(e) => {
                 handleChange(e);
               }}

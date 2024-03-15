@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import Input from "../shared/Input";
 import Radio from "../shared/Radio";
 import CheckBox from "../shared/CheckBox";
@@ -7,73 +7,15 @@ import RichTextEditorWrapper from "../shared/RichTextEditor";
 import { useDispatch } from "react-redux";
 import { addPosition } from "../../store/slices/jobpostslice";
 import { useNavigate } from "react-router-dom";
-const dataNeeded = [
-  {
-    docId: 21,
-    dataLabel: "Name",
-    dataValue: "name",
-    isChecked: false,
-  },
-  {
-    docId: 31,
-    dataLabel: "E-mail",
-    dataValue: "email",
-    isChecked: false,
-  },
-  {
-    docId: 41,
-    dataLabel: "Phone Number",
-    dataValue: "phno",
-    isChecked: false,
-  },
-  {
-    docId: 42,
-    dataValue: "linkdenurl",
-    dataLabel: "Linkden Url",
-    isChecked: false,
-  },
-  {
-    docId: 51,
-    dataValue: "currentcmp",
-    dataLabel: "Current Company",
-    isChecked: false,
-  },
-];
-export function getRandomInt(min = 105, max = 10000) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import dataNeeded from "../staticData/docsNeeded";
+import reducer from "../reducer/addPositionReducer";
+import { getRandomInt } from "../shared/util";
 
-function reducer(state: any, action: any) {
-  switch (action.type) {
-    case "UPDATE_TITLE":
-      return { ...state, title: action.value };
-    case "UPDATE_EXPERIENCE":
-      return { ...state, experience: action.value };
-    case "UPDATE_LOCATION":
-      return { ...state, location: action.value };
-    case "UPDATE_SALARY":
-      return { ...state, salary: action.value };
-    case "UPDATE_JD":
-      return { ...state, jobDescription: action.value };
-    case "UPDATE_DOCS_REQ":
-      // eslint-disable-next-line no-case-declarations
-      let docsArr = [...state.docsNeeded];
-      docsArr = docsArr.map((doc) => {
-        if (doc.docId == action.value.docId) {
-          doc.isChecked = action.value.isChecked;
-        }
-        return doc;
-      });
-      return { ...state, docsNeeded: docsArr };
-    default:
-      return;
-  }
-}
 type Props = {};
 const initialArg = {
   title: "",
   experience: 0,
-  location: "",
+  location: "in-person",
   salary: 10,
   jobDescription: "",
   docsNeeded: dataNeeded,
@@ -109,7 +51,6 @@ const AddPosition = (props: Props) => {
           addPosition({ ...state, jobId: getRandomInt(), candidateApplied: [] })
         );
         navigation("/job-posts");
-        // console.log("submitted", state);
       }}
     >
       <Input
@@ -134,10 +75,8 @@ const AddPosition = (props: Props) => {
           Location
         </div>
         <Radio
-          //   type={"radio"}
           id="job-location"
           labelTxt={"Location"}
-          //   placeholder={""}
           radiosData={radioOptions}
           onChange={(e) => {
             dispatch({ type: "UPDATE_LOCATION", value: e.target.value });
@@ -171,18 +110,13 @@ const AddPosition = (props: Props) => {
                 className={"flex gap-2"}
                 id="job-location"
                 name={docs?.dataValue}
-                // isChecked={docs.isChecked}
-                // value={docs?.dataValue}
                 label={docs?.dataLabel}
                 onChange={(e) => {
                   docs.isChecked = !docs.isChecked;
-                  // if (docs.isChecked) {
                   dispatch({
                     type: "UPDATE_DOCS_REQ",
                     value: docs,
                   });
-                  // }
-                  // console.log(e.target.name, docs);
                 }}
               />
             );

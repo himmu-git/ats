@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useParams } from "react-router-dom";
 
 type Props = {
@@ -7,24 +6,15 @@ type Props = {
 
 export default function Header({ isUserPages }: Props) {
   const { userid, jobid } = useParams() ?? {};
-  //   console.log(userid, jobid, "here");
   const navigationBarList = [
     {
       href: "/",
       label: "Home",
     },
-    // {
-    //   href: "/apply",
-    //   label: "Apply",
-    // },
     {
       href: "/job-posts",
       label: "Job Posts",
     },
-    // {
-    //   href: "/ats",
-    //   label: "Application Tracking",
-    // },
   ];
   const navigationBarListForUser = [
     {

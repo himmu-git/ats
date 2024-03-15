@@ -1,6 +1,5 @@
-import React from "react";
 import { useDrag } from "react-dnd";
-import { ITEM_TYPE } from "./Contants";
+import { ITEM_TYPE } from "../shared/Contants";
 
 type Props = {};
 
