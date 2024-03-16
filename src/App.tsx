@@ -8,13 +8,14 @@ const JobPosts = lazy(() => import("./modules/recruiter/JobPosts"));
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import PageLoader from "./modules/shared/PageLoader";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
-        <Suspense>
+        <Suspense fallback={<PageLoader />}>
           <Home />
         </Suspense>
       ),
@@ -22,7 +23,7 @@ function App() {
         {
           path: "/",
           element: (
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <JobListings />
             </Suspense>
           ),
@@ -30,7 +31,7 @@ function App() {
         {
           path: "/add-position",
           element: (
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <AddPosition />
             </Suspense>
           ),
@@ -38,7 +39,7 @@ function App() {
         {
           path: "/job-posts",
           element: (
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <JobPosts />
             </Suspense>
           ),
@@ -46,7 +47,7 @@ function App() {
         {
           path: "/ats/:jobid",
           element: (
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <ATSPage />
             </Suspense>
           ),
@@ -54,7 +55,7 @@ function App() {
         {
           path: "/:jobtitle/apply/:jobid",
           element: (
-            <Suspense>
+            <Suspense fallback={<PageLoader />}>
               <Apply />
             </Suspense>
           ),
