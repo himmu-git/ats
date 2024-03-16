@@ -20,6 +20,7 @@ const reducer = (state, action) => {
         break;
   
       default:
+        return {...state}
         break;
     }
   };

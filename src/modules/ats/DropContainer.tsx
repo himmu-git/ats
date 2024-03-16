@@ -11,7 +11,7 @@ const DropContainer = ({ id, name = "name", children }: Props) => {
     }),
   }));
   return (
-    <div id={id} className="min-h-[80vh]" ref={drop}>
+    <div id={id} className=" md:min-h-[80vh] xs:min-h-[240px]" ref={drop}>
       {children}
     </div>
   );

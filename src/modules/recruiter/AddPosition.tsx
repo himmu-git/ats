@@ -60,6 +60,7 @@ const AddPosition = (props: Props) => {
         onChange={(e) => {
           dispatch({ type: "UPDATE_TITLE", value: e.target.value });
         }}
+        errorMsg={"Job title is required"}
       />
       <Input
         id="job-experience"
@@ -68,7 +69,9 @@ const AddPosition = (props: Props) => {
         onChange={(e) => {
           dispatch({ type: "UPDATE_EXPERIENCE", value: e.target.value });
         }}
+        pattern="^\d{1,2}$"
         type="number"
+        errorMsg="Please enter a valid number."
       />
       <div className="flex gap-4">
         <div className="text-blue-950 w-[30%] text-xl font-normal leading-5	text-left">
@@ -83,7 +86,13 @@ const AddPosition = (props: Props) => {
           }}
         />
       </div>
-      <Input id="salary" labelTxt={"Salary"} placeholder={"Enter Salary"} />
+      <Input
+        id="salary"
+        labelTxt={"Salary"}
+        placeholder={"Enter Salary"}
+        pattern="^\d+(,\d{3})*(\.\d+)? [A-Z]{3}$"
+        errorMsg="Please enter a valid salary. (10 LPA)"
+      />
       <div className="flex gap-4">
         <div className="text-blue-950 w-[30%] text-xl font-normal leading-5	text-left">
           Job Description

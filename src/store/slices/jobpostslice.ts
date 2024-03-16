@@ -12,8 +12,7 @@ export const jobPostSlice = createSlice({
       state.jobPositions.push(action.payload)
     },
     applyToJob : (state,action) => {
-      console.log(action,"action")
-      state.jobPositions =  action.payload
+      state.jobPositions =  [...action.payload]
     },
   },
 })

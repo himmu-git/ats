@@ -64,7 +64,7 @@ const ATSPage = (props: Props) => {
       <h1 className="text-bold text-3xl text-center py-5">
         Application Tracking Page
       </h1>
-      <div className="board grid grid-cols-5 gap-5 py-4">
+      <div className="board grid md:grid-cols-5 gap-5 py-4  sm:grid-cols-3">
         {STAGES_OF_CANDIDATE.map((stages) => {
           const { id, key, label } = stages;
           return (

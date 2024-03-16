@@ -23,7 +23,7 @@ function App() {
           path: "/",
           element: (
             <Suspense>
-              <JobListings />,
+              <JobListings />
             </Suspense>
           ),
         },
@@ -31,7 +31,7 @@ function App() {
           path: "/add-position",
           element: (
             <Suspense>
-              <AddPosition />,
+              <AddPosition />
             </Suspense>
           ),
         },
@@ -39,7 +39,7 @@ function App() {
           path: "/job-posts",
           element: (
             <Suspense>
-              <JobPosts />,
+              <JobPosts />
             </Suspense>
           ),
         },
@@ -47,7 +47,7 @@ function App() {
           path: "/ats/:jobid",
           element: (
             <Suspense>
-              <ATSPage />,
+              <ATSPage />
             </Suspense>
           ),
         },
@@ -55,7 +55,7 @@ function App() {
           path: "/:jobtitle/apply/:jobid",
           element: (
             <Suspense>
-              <Apply />,
+              <Apply />
             </Suspense>
           ),
         },

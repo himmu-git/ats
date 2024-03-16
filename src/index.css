@@ -7,10 +7,19 @@
     background-color: #fff;
     border-radius: 12px;
     padding: 1rem;
-    box-shadow: 10px 10px 31px 7px rgba(238,238,238,0.6);
+    box-shadow: 10px 10px 31px 7px rgba(238, 238, 238, 0.6);
   }
   .card:hover {
-    box-shadow: 10px 10px 31px 7px rgba(238,238,238,0.91);
+    box-shadow: 10px 10px 31px 7px rgba(238, 238, 238, 0.91);
   }
+  input ~ span {
+    display: none;
+  }
+  input:focus:invalid ~ span,
+  input.touched:invalid ~ span {
+    display: block;
+    color: red;
+  }
+
   /* ... */
 }

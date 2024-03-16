@@ -16,7 +16,7 @@ const intialState = {
   name: "",
   email: "",
   phoneNo: "",
-  linkdenUrl: "",
+  linkdenurl: "",
   currentcmp: "",
 };
 const Apply = (props: Props) => {
@@ -73,7 +73,7 @@ const Apply = (props: Props) => {
     email: "UPDATE_EMAIL",
     richTxtArea: "UPDATE_RICH_TXT",
     phno: "UPDATE_PHNO",
-    linkdenUrl: "UPDATE_LINKDEN_URL",
+    linkdenurl: "UPDATE_LINKDEN_URL",
     currentcmp: "UPDATE_CURRENT_CMP",
   };
   const handleOnSubmit = (e) => {
@@ -133,6 +133,9 @@ const Apply = (props: Props) => {
                     payload: e.target.value,
                   });
                 }}
+                className="md:w-[300px]"
+                pattern={docs.pattern}
+                errorMsg={docs.errorMsg}
               />
             );
           })}

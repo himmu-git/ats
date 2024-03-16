@@ -39,7 +39,7 @@ export default function Header({ isUserPages }: Props) {
 
   return (
     <nav>
-      <ul className="flex gap-4 pl-8 pr-8 pt-4 pb-4">
+      <ul className="flex gap-4 pl-8 pr-8 pt-4 pb-4 ">
         {navigationList.map(({ href, label, isRouteAvailable = true }) => {
           return (
             isRouteAvailable && (

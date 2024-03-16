@@ -5,6 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      'xs': '360px',
+      'sm': '576px',
+      'md': '960px',
+      'lg': '1440px',
+    },
     colors: {
       // 'blue': '#1fb6ff',
       'purple': '#7e5bef',
@@ -36,6 +42,9 @@ export default {
       serif: ['Merriweather', 'serif'],
     },
     extend: {
+      invalid: {
+        'input, textarea, select': '&:invalid',
+      },
       spacing: {
         '8xl': '96rem',
         '9xl': '128rem',
