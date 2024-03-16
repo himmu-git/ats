@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import dataNeeded from "../staticData/docsNeeded";
 import reducer from "../reducer/addPositionReducer";
 import { getRandomInt } from "../shared/util";
+import { radioOptions } from "../shared/Contants";
 
 type Props = {};
 const initialArg = {
@@ -22,23 +23,6 @@ const initialArg = {
 };
 
 const AddPosition = (props: Props) => {
-  const radioOptions = [
-    {
-      id: "remote",
-      value: "remote",
-      name: "mode",
-      label: "Remote",
-      isChecked: true,
-    },
-    {
-      id: "in-person",
-      value: "in-person",
-      name: "mode",
-      label: "In - Person",
-      isChecked: false,
-    },
-  ];
-
   const [state, dispatch] = useReducer(reducer, initialArg);
   const dispatchRedux = useDispatch();
   const navigation = useNavigate();

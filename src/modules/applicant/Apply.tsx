@@ -10,7 +10,14 @@ import reducer from "../reducer/applyReducer";
 import { STAGES } from "../shared/Contants";
 
 type Props = {};
-
+const LABEL_MAP_DOC = {
+  name: "UPDATE_NAME",
+  email: "UPDATE_EMAIL",
+  richTxtArea: "UPDATE_RICH_TXT",
+  phno: "UPDATE_PHNO",
+  linkdenurl: "UPDATE_LINKDEN_URL",
+  currentcmp: "UPDATE_CURRENT_CMP",
+};
 const intialState = {
   richTxtArea: "",
   name: "",
@@ -36,46 +43,6 @@ const Apply = (props: Props) => {
     }) ?? [];
   const { title, docsNeeded } = jobDetails;
   const [state, dispatch] = useReducer(reducer, intialState);
-  [
-    {
-      docId: 21,
-      dataLabel: "Name",
-      dataValue: "name",
-      isChecked: true,
-    },
-    {
-      docId: 31,
-      dataLabel: "E-mail",
-      dataValue: "email",
-      isChecked: true,
-    },
-    {
-      docId: 41,
-      dataLabel: "Phone Number",
-      dataValue: "phno",
-      isChecked: true,
-    },
-    {
-      docId: 42,
-      dataValue: "linkdenurl",
-      dataLabel: "Linkden Url",
-      isChecked: false,
-    },
-    {
-      docId: 51,
-      dataValue: "currentcmp",
-      dataLabel: "Current Company",
-      isChecked: false,
-    },
-  ];
-  const LABEL_MAP_DOC = {
-    name: "UPDATE_NAME",
-    email: "UPDATE_EMAIL",
-    richTxtArea: "UPDATE_RICH_TXT",
-    phno: "UPDATE_PHNO",
-    linkdenurl: "UPDATE_LINKDEN_URL",
-    currentcmp: "UPDATE_CURRENT_CMP",
-  };
   const handleOnSubmit = (e) => {
     e.preventDefault();
     let jobDetailsCopy = [...jobPostings];

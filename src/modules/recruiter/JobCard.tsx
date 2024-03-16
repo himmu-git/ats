@@ -11,7 +11,7 @@ type JobCardProps = {
   onClick: any;
 };
 const JobCard = ({ jobData, onClick, showApplyButton }: JobCardProps) => {
-  const { jobId, title, jobDescription }: JobCardDetails = jobData;
+  const { title, jobDescription }: JobCardDetails = jobData;
   const navigate = useNavigate();
   return (
     <div className="card cursor-pointer" onClick={onClick}>

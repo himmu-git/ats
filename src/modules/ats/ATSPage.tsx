@@ -3,36 +3,8 @@ import CandidateCard from "./CandidateCard";
 import DropContainer from "./DropContainer";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { STAGES } from "../shared/Contants";
+import { STAGES, STAGES_OF_CANDIDATE } from "../shared/Contants";
 type Props = {};
-
-const STAGES_OF_CANDIDATE = [
-  {
-    id: "applied",
-    key: STAGES.APPLIED,
-    label: "Applied",
-  },
-  {
-    id: "assessed",
-    key: STAGES.ASSESSED,
-    label: "Assessed",
-  },
-  {
-    id: "interviewed",
-    key: STAGES.INTERVIEWED,
-    label: "Interviewed",
-  },
-  {
-    id: "hired",
-    key: STAGES.HIRED,
-    label: "Hired",
-  },
-  {
-    id: "rejected",
-    key: STAGES.REJECTED,
-    label: "Rejected",
-  },
-];
 
 const ATSPage = (props: Props) => {
   const { jobid } = useParams();
